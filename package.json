@@ -2,10 +2,10 @@
   "name": "whichonevapes",
   "version": "1.0.0",
   "description": "Which celebrity vapes? You decide!",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node index",
-    "dev": "nodemon index"
+    "server": "node server",
+    "dev": "nodemon server"
   },
   "author": "Will Ryan",
   "license": "ISC",
@@ -16,6 +16,7 @@
     "mongoose": "^5.8.2"
   },
   "devDependencies": {
+    "concurrently": "^5.0.2",
     "nodemon": "^2.0.2"
   }
 }
