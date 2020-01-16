@@ -4,8 +4,11 @@
   "description": "Which celebrity vapes? You decide!",
   "main": "server.js",
   "scripts": {
-    "server": "node server",
-    "dev": "nodemon server"
+    "client-install": "npm install --prefix client",
+    "start": "node server",
+    "server": "nodemon server",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Will Ryan",
   "license": "ISC",
