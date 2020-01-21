@@ -1,0 +1,26 @@
+#audio-container {
+  padding: 1rem;
+}
+
+#button-container {
+  text-align: center;
+}
+
+button {
+  padding: .2rem;
+  
+  font-size: 1rem;
+  color: rgb(255,255,255,.7);
+  text-decoration: underline;
+  background-color: transparent;
+  border-style: none;
+  cursor: pointer;
+}
+
+.warning {
+  color: #dc3545;
+}
+
+button {
+  width: 100%;
+}

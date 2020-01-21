@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import sampleSize from "lodash.samplesize";
 import Card from "./components/Card";
+import Audio from "./components/Audio";
 import "./App.css";
 
 class App extends React.Component {
@@ -14,13 +15,19 @@ class App extends React.Component {
     isLoaded: false
   };
 
+  async logWinner(winner, loser) {
+    axios
+      .post(`/api/celebs/${winner}/${loser}`)
+      .then(res => console.log(res.data.msg))
+  }
+
   handleA() {
-    console.log("A clicked...");
+    this.logWinner(this.state.currentA._id, this.state.currentB._id);
     this.updateCurrents();
   }
 
   handleB() {
-    console.log("B clicked...");
+    this.logWinner(this.state.currentB._id, this.state.currentA._id);
     this.updateCurrents();
   }
 
@@ -66,6 +73,7 @@ class App extends React.Component {
           ) : (
             <h3>Loading...</h3>
           )}
+          <Audio />
         </main>
 
         <video playsInline autoPlay muted loop poster="./poster.jpg">

@@ -97,7 +97,7 @@ router.post("/:a/:b", async (req, res) => {
   });
 
   res.send({
-    msg: `${winner.name}:${result.playerRating} is the winner and ${loser.name}:${result.opponentRating} is the loser`
+    msg: `${winner.name} (elo: ${result.playerRating}) is the winner and ${loser.name} (elo: ${result.opponentRating}) is the loser`
   });
 });
 
