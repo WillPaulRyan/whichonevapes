@@ -10,14 +10,14 @@ class App extends React.Component {
     celebList: [],
     currentA: { name: "" },
     currentB: { name: "" },
-    // nextA: { name: "" },
-    // nextB: { name: "" },
+    nextA: { name: "" },
+    nextB: { name: "" },
     isLoaded: false
   };
 
   async logWinner(winner, loser) {
     axios
-      .post(`/api/celebs/${winner}/${loser}`)
+      .patch(`/api/celebs/${winner}/${loser}`)
       .then(res => console.log(res.data.msg))
   }
 
@@ -32,8 +32,15 @@ class App extends React.Component {
   }
 
   updateCurrents() {
-    let newCurrents = sampleSize(this.state.celebList, 2);
-    this.setState({ currentA: newCurrents[0], currentB: newCurrents[1] });
+    // Move next celebs to current status and stage two new celebs for next round
+    this.setState(state => ({currentA: state.nextA, currentB: state.nextB}));
+    let nextCelebs = sampleSize(this.state.celebList, 2)
+    this.setState({ nextA: nextCelebs[0], nextB: nextCelebs[1] })
+    
+    // Preloads next 2 celeb pics
+    nextCelebs.forEach(celeb => {
+      new Image().src = `./celeb_pics/${celeb.pic}`
+    })    
   }
 
   // Load celeb list asynchronously
@@ -41,13 +48,21 @@ class App extends React.Component {
     axios
       .get(`/api/celebs`)
       .then(res => {
-        let random = sampleSize(res.data, 2);
+        // Pull first 4 celebs and load list into state
+        let random = sampleSize(res.data, 4);
         this.setState({
           currentA: random[0],
           currentB: random[1],
           celebList: res.data,
-          isLoaded: true
+          isLoaded: true,
+          nextA: random[2],
+          nextB: random[3]
         });
+
+        // Preload celebs' images
+        random.forEach(celeb => {
+          new Image().src = `./celeb_pics/${celeb.pic}`;
+        })
       })
       .catch(err => console.log(err));
   }

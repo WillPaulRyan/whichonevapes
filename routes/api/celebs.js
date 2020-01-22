@@ -65,7 +65,7 @@ router.post("/", async (req, res) => {
 // @route   POST api/celebs/:id1/:id2
 // @desc    2 celebs elo comparison and update
 // @acess   Public
-router.post("/:a/:b", async (req, res) => {
+router.patch("/:a/:b", async (req, res) => {
   // Check for identical ids
   if (req.params.a === req.params.b)
     return res.status(400).json({ msg: "Cannot compare celeb with themself" });
