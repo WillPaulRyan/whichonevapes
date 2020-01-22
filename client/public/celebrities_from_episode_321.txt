@@ -1,0 +1,65 @@
+Kelsey Grammer
+Ted Danson
+David Boreanaz
+Bob Uecker
+Michael Jordan
+Michael Richards
+Matt Lauer
+Kevin James
+Chris Parnell
+Leonardo DiCaprio
+
+/*
+Johnny Depp
+Jason Segel
+Rider Strong
+Corey Feldman
+Lil Wayne
+Jake Busey
+John Leguizamo
+Carrot Top
+Bill Clinton
+Russell Brand
+Russell Crowe
+Bill Paxton
+Randy Quaid
+*/
+
+Tony Romo
+Slimer
+Edward Snowden
+Joseph Gordon-Levitt
+Anderson Cooper
+Ben Affleck
+Marilyn Monroe
+Howard Stern
+Jennifer Garner
+Hulk Hogan
+Ian McKellan
+Kristen Stewart
+Paul Rudd
+Paul Newman
+Danica Patrick
+Jay Leno
+Alyson Hannigan
+Felicia Day
+Alex Rodriguez
+Marisa Tomei
+Denzel Washington
+Dustin Hoffman
+Paul McCartney
+Adam Sandler
+Jack Nicholson
+Bruce Willis
+Garth Brooks
+Robert Downey Jr
+Christian Bale
+Tyler Perry
+Brendan Fraser
+Pauly Shore
+Audrey Hepburn
+Jacques Cousteau
+Martin Sheen
+Tommy Lee Jones
+Keanu Reeves
+Ron Howard
