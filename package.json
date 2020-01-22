@@ -4,7 +4,6 @@
   "description": "Which celebrity vapes? You decide!",
   "main": "server.js",
   "scripts": {
-    "client-install": "npm install --prefix client",
     "start": "node server",
     "server": "nodemon server",
     "client": "npm start --prefix client",
