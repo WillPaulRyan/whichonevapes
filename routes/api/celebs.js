@@ -14,6 +14,56 @@ router.get("/", (req, res) => {
   });
 });
 
+// @route   PATCH api/celebs/:id1/:id2
+// @desc    2 celebs elo comparison and update
+// @acess   Public
+router.patch("/:a/:b", async (req, res) => {
+  // Check for identical ids
+  if (req.params.a === req.params.b)
+    return res.status(400).json({ msg: "Cannot compare celeb with themself" });
+
+  // Get relevant celebs
+  let winner = await Celeb.findById(req.params.a, (err, celeb) => {
+    if (err) return res.status(500).send(err);
+  });
+  let loser = await Celeb.findById(req.params.b, (err, celeb) => {
+    if (err) return res.status(500).send(err);
+  });
+
+  result = EloRating.calculate(winner.elo, loser.elo);
+
+  // Update winner elo
+  Celeb.updateOne(
+    { _id: winner._id },
+    { $set: { elo: result.playerRating } }
+  ).catch(err => {
+    return res.status(500).send(err);
+  });
+
+  // Update loser elo
+  Celeb.updateOne(
+    { _id: loser._id },
+    { $set: { elo: result.opponentRating } }
+  ).catch(err => {
+    return res.status(500).send(err);
+  });
+
+  res.send({
+    msg: `${winner.name} (elo: ${result.playerRating}) is the winner and ${loser.name} (elo: ${result.opponentRating}) is the loser`
+  });
+});
+
+// @route   GET api/celebs/leaderboard
+// @desc    Create new celeb
+// @acess   Public
+router.get("/leaderboard", async (req, res) => {
+  const top = Celeb.find().sort({elo:-1}).limit(10);
+  const bottom = Celeb.find().sort({elo:+1}).limit(10)
+  
+  Promise.all([top, bottom])
+    .then(data => res.status(200).send({ top: data[0], bottom: data[1] }))
+});
+
 // @route   GET api/celebs/:id
 // @desc    Get single celeb
 // @acess   Public
@@ -23,6 +73,7 @@ router.get("/:id", (req, res) => {
     res.status(200).send(celeb);
   });
 });
+
 
 // @route   POST api/celebs
 // @desc    Create new celeb
@@ -62,43 +113,18 @@ router.post("/", async (req, res) => {
   });
 });
 
-// @route   POST api/celebs/:id1/:id2
-// @desc    2 celebs elo comparison and update
+// @route   PATCH api/celebs/reset
+// @desc    Reset all celebs' elo to 1500 for dev purposes
 // @acess   Public
-router.patch("/:a/:b", async (req, res) => {
-  // Check for identical ids
-  if (req.params.a === req.params.b)
-    return res.status(400).json({ msg: "Cannot compare celeb with themself" });
+// router.patch("/reset", async (req, res) => {
+//   Celeb.updateMany({}, { $set: { elo: 1500 } })
+//     .catch(err => {
+//       return res.status(500).send(err);
+//     })
 
-  // Get relevant celebs
-  let winner = await Celeb.findById(req.params.a, (err, celeb) => {
-    if (err) return res.status(500).send(err);
-  });
-  let loser = await Celeb.findById(req.params.b, (err, celeb) => {
-    if (err) return res.status(500).send(err);
-  });
-
-  result = EloRating.calculate(winner.elo, loser.elo);
-
-  // Update winner elo
-  Celeb.updateOne(
-    { _id: winner._id },
-    { $set: { elo: result.playerRating } }
-  ).catch(err => {
-    return res.status(500).send(err);
-  });
-
-  // Update loser elo
-  Celeb.updateOne(
-    { _id: loser._id },
-    { $set: { elo: result.opponentRating } }
-  ).catch(err => {
-    return res.status(500).send(err);
-  });
-
-  res.send({
-    msg: `${winner.name} (elo: ${result.playerRating}) is the winner and ${loser.name} (elo: ${result.opponentRating}) is the loser`
-  });
-});
+//   res.send({
+//     msg: `All celebs' elo rankings reset to 1500`
+//   });
+// });
 
 module.exports = router;

@@ -16,15 +16,17 @@ export default class Audio extends React.Component {
     return (
       <div id="audio-container">
         {this.state.showAudio ? (
-          <audio controls preload="metadata" id="episode">
-            <source src="./mbmbam321.mp3" />
-            Your browser does not support the <code>audio</code> element.
-          </audio>
+          <div>
+            <audio controls preload="metadata" id="episode">
+              <source src="./mbmbam321.mp3" />
+              Your browser does not support the <code>audio</code> element.
+            </audio>
+            <p className="warning">Check your headphones, it may be loud.</p>
+          </div>
           ) : (
-            <div id="button-container">
+            <div>
               <button onClick={this.handleClick.bind(this)}>Listen to MBMBAM episode 321: Which One Vapes</button>
-              <p className="warning">Warning: don't do this on mobile data</p>
-              <p className="warning">Also, it may be loud. Turn down your headphone volume.</p>
+              <p className="warning">Warning: this will use 34MB of data, only listen on wifi</p>
             </div>
           )}
       </div>
