@@ -4,7 +4,14 @@
 }
 
 :root {
+  font-size: 12px;
   --default: rgb(255,255,255,.7);
+}
+
+@media (min-width: 636px) {
+  :root {
+    font-size: 16px;
+  }
 }
 
 html,
@@ -25,6 +32,10 @@ main {
   align-items: center;
 
   color: var(--default);
+}
+
+#loading {
+  margin-bottom: 1rem;
 }
 
 video {

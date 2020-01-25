@@ -72,12 +72,12 @@ export default class Game extends React.Component {
         {this.state.gameView ? (
           <div id="game">
             <Card
-              id="A"
+              id="a"
               celeb={this.state.currentA}
               handleClick={this.handleA.bind(this)}
             />
             <Card
-              id="B"
+              id="b"
               celeb={this.state.currentB}
               handleClick={this.handleB.bind(this)}
             />

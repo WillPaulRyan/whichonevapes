@@ -14,12 +14,10 @@ export default class Leaderboard extends React.Component {
     axios
       .get(`/api/celebs/leaderboard`)
       .then(res => {
-        console.log(res.data.top)
-        console.log(res.data.bottom)
         this.setState({
           top: res.data.top,
           bottom: res.data.bottom,
-          isLoaded: true,
+          isLoaded: true
         });
 
       })
@@ -55,9 +53,11 @@ export default class Leaderboard extends React.Component {
             <table>
               <caption>Most likely to vape</caption>
               <thead>
-                <th></th>
-                <th>Name</th>
-                <th>Elo</th>
+                <tr>
+                  <th></th>
+                  <th>Name</th>
+                  <th>Elo</th>
+                </tr>
               </thead>
               <tbody>
                 {top}
@@ -66,9 +66,11 @@ export default class Leaderboard extends React.Component {
             <table>
               <caption>Least likely to vape</caption>
               <thead>
-                <th></th>
-                <th>Name</th>
-                <th>Elo</th>
+                <tr>
+                  <th></th>
+                  <th>Name</th>
+                  <th>Elo</th>
+                </tr>
               </thead>
               <tbody>
                 {bottom}

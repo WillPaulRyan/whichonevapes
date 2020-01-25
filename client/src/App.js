@@ -33,7 +33,7 @@ class App extends React.Component {
           {this.state.isLoaded ? (
             <Game celebList={this.state.celebList} />
           ) : (
-            <h3>Loading...</h3>
+            <h3 id="loading">Loading...</h3>
           )}
           <Audio />
         </main>

@@ -1,6 +1,6 @@
 .card {
-  margin: 0 50px;
-  padding: 25px 40px;
+  /* margin: 0 1rem; */
+  padding: 2vw 5vw 3vw 5vw;
 
   border: 1px solid rgb(255,255,255,.7);
   border-radius: 10px;
@@ -9,9 +9,25 @@
   cursor: pointer;
 }
 
+#a {
+  margin-right: 2.5vw;
+}
+
+#b {
+  margin-left: 2.5vw;
+}
+
+@media(min-width:950px) {
+  .card {
+    padding: 1.5rem 4rem 2rem 4rem;
+  }
+}
+
 .card img {
   margin-top: 10px;
-  height: 400px;
-  width: 300px;
+  width: 27vw;
+  height: 36vw;
+  max-height: 400px;
+  max-width: 300px;
   object-fit: cover;
 }
