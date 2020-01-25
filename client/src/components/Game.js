@@ -37,6 +37,11 @@ export default class Game extends React.Component {
     this.updateCurrents();
   }
 
+  handleKeyPress = event => {
+    (event.target.id === 'a' ) ? this.handleA() : this.handleB();
+    console.log(event.target);
+  }
+
   updateCurrents() {
     // Move next celebs to current status and stage two new celebs for next round
     this.setState(state => ({currentA: state.nextA, currentB: state.nextB}));
@@ -73,20 +78,24 @@ export default class Game extends React.Component {
           <div id="game">
             <Card
               id="a"
+              tabIndex="1"
               celeb={this.state.currentA}
               handleClick={this.handleA.bind(this)}
+              handleKeyPress={this.handleKeyPress.bind(this)}
             />
             <Card
               id="b"
+              tabIndex="2"
               celeb={this.state.currentB}
               handleClick={this.handleB.bind(this)}
+              handleKeyPress={this.handleKeyPress.bind(this)}
             />
           </div>
         ) : (
           <Leaderboard />
         )}
         <button onClick={this.handleView.bind(this)}>
-          {this.state.gameView ? 'View Leaderboard' : 'Play Game'}
+          {this.state.gameView ? 'View Leaderboard' : 'Back to the game'}
         </button>
       </div>
 );
