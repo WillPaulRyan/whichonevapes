@@ -26,7 +26,7 @@ export default class Audio extends React.Component {
           ) : (
             <div>
               <button onClick={this.handleClick.bind(this)}>Listen to MBMBAM episode 321: Which One Vapes</button>
-              <p className="warning">Warning: this will use 34MB of data, only listen on wifi</p>
+              <p className="warning">Warning: Listening will use 34MB of data, make sure you're on wifi</p>
             </div>
           )}
       </div>

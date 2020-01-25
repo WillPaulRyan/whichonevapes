@@ -1,0 +1,22 @@
+#game-container {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#game {
+  /* margin: 2rem 0; */
+  display: flex;
+  justify-content: center;
+}
+
+#game-container button {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: rgb(255,255,255,.7);
+  text-decoration: underline;
+  background-color: transparent;
+  border-style: none;
+  cursor: pointer;
+}

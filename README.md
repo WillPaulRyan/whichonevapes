@@ -1,10 +1,10 @@
 # Which One Vapes?
 
-Which One Vapes? is a webapp that allows users to compare two celebrities, and decide which one is more likely to use electronic cigarettes. It is made purely for fun, with no intention to offend any of the celebrities mentioned.
+Which One Vapes? is a webapp that allows users to compare two celebrities and decide who they believe is more likely to "rip fat vape clouds". It includes an Elo rating system to determine the fan-favorite most-likely and least-likely vapers. It is made purely for fun, with no intention to offend any of the celebrities mentioned.
 
 ## Technologies
 
-Which One Vapes? is created with:
+Which One Vapes? and its API are created with:
 
 * The MERN stack (MongoDB, Express, React.js, Node.js)
 

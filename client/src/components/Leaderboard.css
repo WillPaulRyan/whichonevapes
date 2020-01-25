@@ -1,0 +1,36 @@
+#leaderboard-container {
+  text-align: center;
+}
+
+#leaderboard {
+  display: flex;
+}
+
+#leaderboard table {
+  margin: 0 2rem;
+  
+  border-collapse: collapse;
+}
+
+#leaderboard caption {
+  font-size: 1.4rem;
+  color: white;
+}
+
+#leaderboard th {
+  border: 1px solid var(--default);
+}
+
+#leaderboard th:first-child {
+  border: none;
+}
+
+#leaderboard td {
+  padding: .5rem;
+  border: 1px solid var(--default);
+  /* color: var(--default); */
+}
+
+#leaderboard td:nth-child(2) {
+  color: white;
+} 

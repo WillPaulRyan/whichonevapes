@@ -1,11 +1,10 @@
 #audio-container {
-  padding: 1rem;
+  /* padding: 1rem; */
   text-align: center;
 }
 
-button {
-  padding: .2rem;
-  
+#audio-container button {
+  width: 100%;  
   font-size: 1rem;
   color: rgb(255,255,255,.7);
   text-decoration: underline;
@@ -14,10 +13,6 @@ button {
   cursor: pointer;
 }
 
-.warning {
+#audio-container .warning {
   color: #dc3545;
-}
-
-button {
-  width: 100%;
 }

@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+:root {
+  --default: rgb(255,255,255,.7);
+}
+
 html,
 body,
 #root,
@@ -20,13 +24,7 @@ main {
   justify-content: center;
   align-items: center;
 
-  color: rgb(255,255,255,.7);
-}
-
-#game {
-  margin: 2rem 0;
-  display: flex;
-  justify-content: center;
+  color: var(--default);
 }
 
 video {
