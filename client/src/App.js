@@ -38,9 +38,9 @@ class App extends React.Component {
           <Audio />
         </main>
 
-        <video playsInline autoPlay muted loop poster="./poster.jpg">
-          <source src="./bg_video.webm" type="video/webm" />
-          <source src="./bg_video.mp4" type="video/mp4" />
+        <video playsInline autoPlay muted loop poster="./images/poster.jpg">
+          <source src="./videos/bg_video.webm" type="video/webm" />
+          <source src="./videos/bg_video.mp4" type="video/mp4" />
         </video>
       </div>
     );
