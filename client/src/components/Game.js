@@ -39,7 +39,6 @@ export default class Game extends React.Component {
 
   handleKeyPress = event => {
     (event.target.id === 'a' ) ? this.handleA() : this.handleB();
-    console.log(event.target);
   }
 
   updateCurrents() {
