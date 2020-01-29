@@ -9,7 +9,7 @@ class Card extends React.Component {
         <h2>{this.props.celeb.name}</h2>
         <img
           src={`./celeb_pics/${this.props.celeb.pic}`}
-          alt={this.props.name}
+          alt={this.props.celeb.name}
         ></img>
       </div>
     );
