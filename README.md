@@ -1,4 +1,4 @@
-# Which One Vapes?
+# [Which One Vapes?](http://www.whichonevapes.party)
 
 Which One Vapes? is a webapp that allows users to compare two celebrities and decide who they believe is more likely to "rip fat vape clouds". It includes an Elo rating system to determine the fan-favorite most-likely and least-likely vapers. It is made purely for fun, with no intention to offend any of the celebrities mentioned.
 
